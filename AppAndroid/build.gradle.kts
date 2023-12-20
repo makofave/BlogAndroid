@@ -11,4 +11,5 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
     kotlin("kapt") version "1.9.21"
     id("com.google.dagger.hilt.android") version "2.46" apply false
+    id ("androidx.navigation.safeargs.kotlin") version "2.7.1" apply false
 }
