@@ -11,16 +11,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <SearchView
-                android:id="@+id/svBlog"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvBlog"
@@ -29,10 +19,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/svBlog" />
+                app:layout_constraintTop_toBottomOf="@+id/checBox_Titulo" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatBtnAdd"
@@ -44,6 +35,37 @@
                 android:src="@drawable/ic_launcher_foreground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checBox_Titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:checked="true"
+                android:text="Titulo  "
+                app:layout_constraintEnd_toStartOf="@+id/checkBoxAutor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBoxAutor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Autor  "
+                app:layout_constraintEnd_toStartOf="@+id/checkBox_Contenido"
+                app:layout_constraintStart_toEndOf="@+id/checBox_Titulo"
+                app:layout_constraintTop_toTopOf="@+id/checBox_Titulo" />
+
+            <CheckBox
+                android:id="@+id/checkBox_Contenido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Contenido"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/checkBoxAutor"
+                app:layout_constraintTop_toTopOf="@+id/checkBoxAutor" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

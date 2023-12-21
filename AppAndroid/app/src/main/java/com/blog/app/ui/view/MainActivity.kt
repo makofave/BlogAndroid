@@ -1,14 +1,16 @@
 package com.blog.app.ui.view
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
-import android.view.MenuItem
+import android.view.MenuInflater
+import android.view.View
+import android.widget.SearchView
+import androidx.core.view.MenuProvider
 import com.blog.app.R
 import com.blog.app.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
 
 
     }

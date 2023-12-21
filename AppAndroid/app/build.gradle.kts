@@ -44,6 +44,7 @@ android {
 dependencies {
 
 
+    //implementation("com.android.car.ui:car-ui-lib:2.5.1")
     //room
     val roomVersion:String = "2.6.1"
     implementation("androidx.room:room-ktx:$roomVersion")

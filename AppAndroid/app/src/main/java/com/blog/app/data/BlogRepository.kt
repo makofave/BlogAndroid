@@ -31,5 +31,9 @@ class BlogRepository @Inject constructor(
         blogDao.deleteAllBlogs()
     }
 
+    suspend fun getBLogFromDatabase(id:String):Blog{
+        return blogDao.searchBlog(id).toDomain()
+    }
+
 
 }

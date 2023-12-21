@@ -21,10 +21,16 @@
         <action
             android:id="@+id/action_homeFragment_to_showBlogFragment"
             app:destination="@id/showBlogFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/showBlogFragment"
         android:name="com.blog.app.ui.view.ShowBlogFragment"
         android:label="fragment_show_blog"
-        tools:layout="@layout/fragment_show_blog" />
+        tools:layout="@layout/fragment_show_blog" >
+            <argument
+                android:name="idblog"
+                app:argType="string"
+                android:defaultValue="1" />
+    </fragment>
 </navigation>
