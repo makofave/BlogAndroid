@@ -3,6 +3,7 @@ package com.blog.app.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.blog.app.data.network.UntilsNetwork
 import com.blog.app.domain.GetBlog
 import com.blog.app.domain.GetBlogs
 import com.blog.app.domain.InsertarBLog
@@ -15,17 +16,22 @@ import javax.inject.Inject
 class BlogViewModel @Inject constructor(
     private val getBlogs: GetBlogs,
     private val getBlogCseuse: GetBlog,
-    private val insertarBLog: InsertarBLog
+    private val insertarBLog: InsertarBLog,
+    private val untilsNetwork: UntilsNetwork
 ) : ViewModel() {
 
     val blogList = MutableLiveData<List<Blog>>()
     val blog = MutableLiveData<Blog>()
     val isLoading = MutableLiveData<Boolean>()
+    val isNetwork = MutableLiveData<Boolean>()
 
 
     suspend fun getAllBlog() {
         viewModelScope.launch {
             isLoading.postValue(true)
+            isNetwork.postValue(untilsNetwork.invoke())
+
+
             val response = getBlogs()
             if(!response.isNullOrEmpty())
                 blogList.postValue(response)
@@ -38,7 +44,6 @@ class BlogViewModel @Inject constructor(
         viewModelScope.launch {
             val response = getBlogCseuse(id)
             blog.postValue(response)
-
         }
     }
 

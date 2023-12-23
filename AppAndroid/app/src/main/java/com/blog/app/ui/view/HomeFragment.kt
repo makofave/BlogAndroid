@@ -30,6 +30,7 @@ import com.blog.app.data.model.BlogProvider
 import com.blog.app.databinding.FragmentHomeBinding
 import com.blog.app.domain.model.Blog
 import com.blog.app.ui.viewmodel.BlogViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -61,6 +62,15 @@ class HomeFragment : Fragment() {
         }
         blogViewModel.isLoading.observe(viewLifecycleOwner, Observer {
             binding.progress.isVisible = it;
+        })
+
+        blogViewModel.isNetwork.observe(viewLifecycleOwner, Observer {
+
+           /* if(it){
+                Snackbar.make(view,"Sin COnexion a Internet",Snackbar.LENGTH_SHORT).show()
+            }*/
+            binding.layoutNetwork.isVisible=!it
+            binding.floatBtnAdd.isEnabled = it
         })
 
         initREcyclerView()
