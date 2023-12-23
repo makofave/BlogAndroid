@@ -1,6 +1,8 @@
 package com.blog.app.data.model
 
 import javax.inject.Inject
+import javax.inject.Singleton
+
 
 class BlogProvider @Inject constructor(){
 

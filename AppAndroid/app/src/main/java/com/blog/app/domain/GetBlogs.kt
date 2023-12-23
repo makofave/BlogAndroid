@@ -10,12 +10,19 @@ class GetBlogs @Inject constructor(
 ) {
 
     suspend operator fun invoke():List<Blog>{
-        val blogListDatabase=blogRepository.getListBLogFromDatabase()
+       /* val blogListDatabase=blogRepository.getListBLogFromDatabase()
         val blogProvider=blogRepository.getListBlogProvider()
 
-        if(blogListDatabase.isEmpty()){
-            blogRepository.insertAll(blogProvider.map { it.toDatabase()})
-        }
+        if (blogProvider.size>blogListDatabase.size){
+            blogRepository.deleteBlogs()
+            blogRepository.insertAllToDatabase(blogProvider.map { it.toDatabase()})
+        }*/
+        val blogApi=blogRepository.getListBlogFromAPI()
+        blogRepository.deleteBlogs()
+        blogRepository.insertAllToDatabase(blogApi.map { it.toDatabase()})
+
+
+
         return blogRepository.getListBLogFromDatabase()
     }
 }

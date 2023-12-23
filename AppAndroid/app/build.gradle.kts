@@ -43,8 +43,11 @@ android {
 
 dependencies {
 
+    //retrosfit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    //implementation("com.android.car.ui:car-ui-lib:2.5.1")
+
     //room
     val roomVersion:String = "2.6.1"
     implementation("androidx.room:room-ktx:$roomVersion")
