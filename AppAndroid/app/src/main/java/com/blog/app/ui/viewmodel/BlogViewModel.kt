@@ -1,5 +1,6 @@
 package com.blog.app.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -24,19 +25,22 @@ class BlogViewModel @Inject constructor(
     val blog = MutableLiveData<Blog>()
     val isLoading = MutableLiveData<Boolean>()
     val isNetwork = MutableLiveData<Boolean>()
+    val isSave=MutableLiveData<Boolean>()
 
 
     suspend fun getAllBlog() {
         viewModelScope.launch {
+
+            //ponemos el loading en la pantalla
             isLoading.postValue(true)
+            //verificamos si hay conexion a internet
             isNetwork.postValue(untilsNetwork.invoke())
-
-
             val response = getBlogs()
-            if(!response.isNullOrEmpty())
+            if (!response.isNullOrEmpty())
                 blogList.postValue(response)
 
             isLoading.postValue(false)
+
         }
     }
 
@@ -47,7 +51,24 @@ class BlogViewModel @Inject constructor(
         }
     }
 
+    suspend fun insertBlog(blog: Blog) {
+        viewModelScope.launch {
+            //ponemos el loading en la pantalla
+            isLoading.postValue(true)
+            //verificamos si hay conexion a internet
+            isNetwork.postValue(untilsNetwork.invoke())
 
+            if (insertarBLog(blog))
+            {
+                isSave.postValue(true)
+            }else{
+                isSave.postValue(false)
+            }
+
+
+            isLoading.postValue(false)
+        }
+    }
 
 
 }

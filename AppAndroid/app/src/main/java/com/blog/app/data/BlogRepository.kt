@@ -31,6 +31,11 @@ class BlogRepository @Inject constructor(
         return response.map { it.toDomain() }
     }
 
+    suspend fun getCountFromAPi():Int{
+        val response =api.getCount()
+        return  response
+    }
+
     suspend fun insertAllToDatabase(blogs:List<BlogEntity>){
         blogDao.insertAll(blogs)
     }
@@ -43,9 +48,9 @@ class BlogRepository @Inject constructor(
         return blogDao.searchBlog(id).toDomain()
     }
 
-    suspend fun insertBlogtoAPI(blog:Blog){
-        val blogs = blogProvider.blogs
-        blogs.add(blog.toModel())
+    suspend fun insertBlogtoAPI(blog:Blog):String{
+        return api.insertBlog(blog)
+
 
     }
 

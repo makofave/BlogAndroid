@@ -65,10 +65,6 @@ class HomeFragment : Fragment() {
         })
 
         blogViewModel.isNetwork.observe(viewLifecycleOwner, Observer {
-
-           /* if(it){
-                Snackbar.make(view,"Sin COnexion a Internet",Snackbar.LENGTH_SHORT).show()
-            }*/
             binding.layoutNetwork.isVisible=!it
             binding.floatBtnAdd.isEnabled = it
         })

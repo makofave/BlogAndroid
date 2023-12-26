@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.HomeFragment">
 
 
@@ -32,6 +33,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:clickable="true"
+                android:backgroundTint="@color/floatcolor"
                 android:src="@drawable/add_circle_outline_24"
                 app:layout_constraintBottom_toTopOf="@+id/layoutNetwork"
                 app:layout_constraintEnd_toEndOf="parent" />

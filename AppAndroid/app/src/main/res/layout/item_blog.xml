@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_color_card"
         android:padding="3dp">
 
         <TextView
@@ -18,7 +19,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/como_crear_un_blog"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:textAlignment="center"
+            android:textColor="@color/white"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,9 +32,11 @@
             android:id="@+id/tvAutor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:text="ALberto ELias"
+            android:textColor="@color/white"
+            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
 
@@ -39,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
+            android:textSize="12dp"
             android:text="20/12/2023 8:00 A.M."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvAutor" />
@@ -50,8 +58,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:maxLength="70"
             android:text="@string/lorem_ipsum"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvFecha" />
